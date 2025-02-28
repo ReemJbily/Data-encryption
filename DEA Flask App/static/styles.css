@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000013;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: 100vh; /* Ensure the body takes the full height of the viewport */
+}
+
+h1 {
+    color: #873ce9;
+    margin-top: 20px;
+}
+
+
+input[type="file"], button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4c03ac;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="file"]:hover, button:hover {
+    background-color: #4c03ac;
+}
+
+#fileDisplay, #resultDisplay {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #d40000;
+    width: 45%; /* Adjust width to fit side by side */
+    text-align: center;
+    overflow-wrap: break-word; /* Ensure long words break to fit the container */
+    white-space: pre-wrap; /* Preserve formatting and allow text to wrap */
+    font-size: 14px; /* Adjust font size as needed */
+    max-height: 300px; /* Set a maximum height */
+    overflow-y: auto; /* Add vertical scroll if content exceeds max height */
+    color: black; 
+}
+
+.display-container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 20px; /* Adjust the distance from the bottom */
+    width: 100%;
+}
+
+.label-container{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    font-size: 20px; 
+    font-weight: bold;
+}
+
+
+
+

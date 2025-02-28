@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>File Encryption</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <h1>File Encryption</h1>
+    <form method=post enctype=multipart/form-data>
+        <input type=file name=file id="fileInput"  accept=".txt">
+        <input type="submit" value="upload" id="saveid">        
+    </form>
+    
+    <div class="label-container">
+        <label >Original Text</label>
+        <label >Encrypted Text</label> 
+    </div>
+    
+    <div class="display-container">
+        <div id="fileDisplay"></div>
+        <div id="resultDisplay"></div>
+    </div>
+    <div class="button-container">
+        <button id="encryptButton">Start Encryption</button>
+        <button id="optimizingButton">Start optimizing</button>        
+    <script>
+
+
+
+document.getElementById('encryptButton').addEventListener('click', async () => {
+            fetch('/send')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('fileDisplay').innerHTML = JSON.stringify(data.original_text[0][0], null, 2);
+                document.getElementById('resultDisplay').innerHTML = JSON.stringify(data.encrypted_file, null, 2);
+            })
+            .catch(error => {
+                document.getElementById('resultDisplay').innerHTML = 'An error occurred while encrypting';
+            });           
+});  
+
+document.getElementById('optimizingButton').addEventListener('click', async () => {
+            fetch('/optimize')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('resultDisplay').innerHTML = JSON.stringify(data.encrypted_file, null, 2);
+            })
+            .catch(error => {
+
+                document.getElementById('resultDisplay').innerHTML = 'Encrypted File was not optimized ';
+            });
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>
